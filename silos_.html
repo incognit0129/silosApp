@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vertical Progress Bar Widget Example</title>
+	<style>
+        .progress-wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+          }
+          .progress-container {
+            width: 200px; /* Change this value to adjust the width of the progress bar */
+            height: 250px; /* Change this value to adjust the height of the progress bar */
+            border: 1px solid #ccc;
+            position: relative;
+            display: inline-block;
+            margin-right: 200px;
+         
+            text-align: center;
+          }
+          .progress-label {
+            margin-top: -55px;
+            border: 2px solid black;
+            font-size: 25px;
+            font-weight:bolder
+          }
+          .progress-label1 {
+            margin-top:300px;
+            border: 2px solid black;
+            font-size: 25px;
+            font-weight:bolder
+          }
+
+          .progress-bar {
+            height: 0;
+            width: 200px;
+            background-color: #4CAF50; /* Change this value to adjust the color of the progress bar */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: height 0.5s;
+           
+          }
+          .progress-height {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          
+          
+	</style>
+</head>
+<body>
+
+
+    <div class="progress-wrapper">
+        <div class="progress-container">
+          <div class="progress-bar" id="progress1"></div>
+          <div class="progress-height" id="progress1-height"></div>
+          <div class="progress-label">Silo 1</div>
+          <div class="progress-label1" id="massLabel1">mass</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress2"></div>
+          <div class="progress-height" id="progress2-height"></div>
+          <div class="progress-label">Silo 2</div>
+          <div class="progress-label1" id="massLabel2">mass</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress3"></div>
+          <div class="progress-height" id="progress3-height"></div>
+          <div class="progress-label">Silo 3</div>
+          <div class="progress-label1" id="massLabel3">mass</div>
+        </div>
+      </div>
+      
+      
+
+      
+	<script>
+        const progress1 = document.getElementById("progress1");
+const progress2 = document.getElementById("progress2");
+const progress3 = document.getElementById("progress3");
+
+
+const progress1Height = document.getElementById("progress1-height");
+const progress2Height = document.getElementById("progress2-height");
+const progress3Height = document.getElementById("progress3-height");
+
+const progress1MassLabel1 = document.getElementById("massLabel1");
+const progress2MassLabel2 = document.getElementById("massLabel2");
+const progress3MassLabel3 = document.getElementById("massLabel3");
+
+
+
+// Update the height of the progress bars with a random number (between 0 and 100)
+function updateProgress() {
+  const randomHeight1 = Math.floor(Math.random() * 101);
+  const randomHeight2 = Math.floor(Math.random() * 101);
+  const randomHeight3 = Math.floor(Math.random() * 101);
+
+  const silo1Mass = Math.floor(Math.random() * 84000);
+  const silo2Mass = Math.floor(Math.random() * 91747);
+  const silo3Mass = Math.floor(Math.random() * 999999);
+  
+  progress1.style.height = randomHeight1 + "%";
+  progress2.style.height = randomHeight2 + "%";
+  progress3.style.height = randomHeight3 + "%";
+
+  progress1Height.innerHTML =randomHeight1 + " %"
+  progress2Height.innerHTML =randomHeight1 + " %"
+  progress3Height.innerHTML =randomHeight1 + " %"
+
+
+
+  progress1MassLabel1.innerText = silo1Mass+ " Lbs"
+  progress2MassLabel2.innerText = silo2Mass + " Lbs"
+  progress3MassLabel3.innerText = silo3Mass + " Lbs"
+
+}
+
+// Call the updateProgress function every 1 second
+setInterval(updateProgress, 1000);
+
+        
+        </script>
+</body>
+</html>

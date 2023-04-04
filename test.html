@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vertical Progress Bar Widget Example</title>
+  
+	<style>
+        .progress-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Add this line to center vertically */
+            flex-wrap: wrap;
+            height: 100vh; /* Add this line to make the progress bars fill the screen vertically */
+            background-color: #DFDFDF;
+            margin-top: 100px;
+          }
+          
+          .progress-container {
+            width: 100%;
+            max-width: 200px;
+            height: 500px;
+            border: 1px solid #ccc;
+            position: relative;
+            display: inline-block;
+            margin: 0 100px 20px;
+            text-align: center;
+            vertical-align: middle;
+            transform: translateY(-50%);
+          }
+          
+          .progress-label {
+            background-color: #303030;
+            color: white;
+            margin-top: -55px;
+            border: 2px solid black;
+            font-size: 25px;
+            font-weight:bolder
+          }
+          .progress-label1 {
+            background-color: #303030;
+            color: white;
+            margin-top:550px;
+            border: 2px solid black;
+            font-size: 25px;
+            font-weight:bolder
+
+          }
+          
+          .progress-bar {
+            height: 0;
+            width: 100%;
+            background-color: #4CAF50;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            transition: height 0.5s;
+           
+          }
+          
+          .progress-height {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+          }
+          
+          * {
+            box-sizing: border-box;
+          }
+          
+          body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 20px;
+          }
+          
+          header {
+            background-color: #333;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+          }
+          
+          nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          
+          .logo a {
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          
+          .nav-links li:not(:last-child) {
+            margin-right: 20px;
+          }
+          
+          .nav-links a {
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          @media screen and (max-width: 768px) {
+            .nav-links {
+              flex-direction: column;
+              align-items: center;
+            }
+          
+            .nav-links li:not(:last-child) {
+              margin-right: 0;
+              margin-bottom: 10px;
+            }
+          }
+          
+          
+	</style>
+</head>
+<body>
+
+    <header>
+        <nav>
+          <div class="logo">
+           <img src="/koozie.PNG" alt="">
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Calculator</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+      
+      
+    <div class="progress-wrapper" >
+        <div class="progress-container">
+          <div class="progress-bar" id="progress1"></div>
+          <div class="progress-height" id="progress1-height"></div>
+          <div class="progress-label">Silo 1</div>
+          <div class="progress-label1" id="massLabel1">mass</div>
+        </div>
+
+        <div class="progress-container">
+          <div class="progress-bar" id="progress2" ></div>
+          <div class="progress-height" id="progress2-height"></div>
+          <div class="progress-label">Silo 2</div>
+          <div class="progress-label1" id="massLabel2">mass</div>
+        </div>
+        <div class="progress-container">
+          <div class="progress-bar" id="progress3"></div>
+          <div class="progress-height" id="progress3-height"></div>
+          <div class="progress-label">Silo 3</div>
+          <div class="progress-label1" id="massLabel3">mass</div>
+        </div>
+      </div>
+      
+      
+
+      
+	<script>
+        const progress1 = document.getElementById("progress1");
+const progress2 = document.getElementById("progress2");
+const progress3 = document.getElementById("progress3");
+
+
+const progress1Height = document.getElementById("progress1-height");
+const progress2Height = document.getElementById("progress2-height");
+const progress3Height = document.getElementById("progress3-height");
+
+const progress1MassLabel1 = document.getElementById("massLabel1");
+const progress2MassLabel2 = document.getElementById("massLabel2");
+const progress3MassLabel3 = document.getElementById("massLabel3");
+
+
+//get the data
+fetch('data.json')
+.then(response => response.json())
+.then(data => {
+  // Populate the table with the JSON data
+  console.log(data.Silo1);
+  console.log(data.Silo2);
+  console.log(data.Silo3);
+
+
+
+
+// Update the height of the progress bars with a random number (between 0 and 100)
+//function updateProgress() {
+
+
+
+
+
+
+  const randomHeight1 = data.Silo1;
+  const randomHeight2 = data.Silo2;
+  const randomHeight3 = data.Silo3;
+
+  const silo1Mass = Math.floor(Math.random() * 84000);
+  const silo2Mass = Math.floor(Math.random() * 91747);
+  const silo3Mass = Math.floor(Math.random() * 999999);
+  
+  progress1.style.height = randomHeight1 + "%";
+  progress2.style.height = randomHeight2 + "%";
+  progress3.style.height = randomHeight3 + "%";
+
+  progress1Height.innerHTML =randomHeight1 + " %"
+  progress2Height.innerHTML =randomHeight2 + " %"
+  progress3Height.innerHTML =randomHeight3 + " %"
+
+
+
+  progress1MassLabel1.innerText = silo1Mass+ " Lbs"
+  progress2MassLabel2.innerText = silo2Mass + " Lbs"
+  progress3MassLabel3.innerText = silo3Mass + " Lbs"
+
+
+//}
+});
+
+// Call the updateProgress function every 1 second
+
+
+        
+        </script>
+</body>
+</html>

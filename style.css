@@ -1,0 +1,15 @@
+body {
+    background-color: #EEEEEE;
+  }
+  
+  #myData {
+    border: 1px solid #AAAAAA;
+    background-color: #FFFFFF;
+    margin: 20px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
